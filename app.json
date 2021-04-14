@@ -1,0 +1,12 @@
+{
+  "name": "PixKey",
+  "displayName": "PixKey",
+  "expo": {
+    "name": "PixKey",
+    "slug": "PixKey",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
