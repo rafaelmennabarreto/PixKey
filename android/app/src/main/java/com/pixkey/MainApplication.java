@@ -1,8 +1,10 @@
 package com.pixkey;
-
+import com.airbnb.android.react.lottie.LottiePackage;
 import android.app.Application;
 import android.content.Context;
 import android.net.Uri;
+
+import com.airbnb.android.react.lottie.LottiePackage;
 
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
@@ -12,6 +14,7 @@ import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 import com.pixkey.generated.BasePackageList;
+import com.nozbe.watermelondb.WatermelonDBPackage;
 
 import org.unimodules.adapters.react.ReactAdapterPackage;
 import org.unimodules.adapters.react.ModuleRegistryAdapter;
@@ -43,6 +46,8 @@ public class MainApplication extends Application implements ReactApplication {
     protected List<ReactPackage> getPackages() {
       List<ReactPackage> packages = new PackageList(this).getPackages();
       packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
+      packages.add(new LottiePackage());
+      packages.add(new WatermelonDBPackage());
       return packages;
     }
 

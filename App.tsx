@@ -1,19 +1,33 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import "react-native-gesture-handler";
+import { createStackNavigator } from "@react-navigation/stack";
+import { stackRoutes } from "./src/route";
+import { NavigationContainer } from "@react-navigation/native";
+import Colors from "./src/utils/colors";
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Home">
+        {stackRoutes.map((s, i) => (
+          <Stack.Screen
+            key={i}
+            name={s.RouteName}
+            component={s.Component}
+            options={{
+              headerTintColor: "white",
+              title: s.Title,
+              headerTitleAlign: "center",
+              headerStyle: {
+                backgroundColor: Colors.BackgroundColor,
+              },
+              headerTitleStyle: { alignSelf: "center" },
+            }}
+          />
+        ))}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
