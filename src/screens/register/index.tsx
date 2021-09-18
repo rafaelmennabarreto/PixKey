@@ -37,6 +37,8 @@ const Register: React.FC = () => {
 
   const getNormalInput = () => <NormalInput />;
 
+  const save = () => {};
+
   const buttonOutlinedData = [
     { text: "Cpf", keyType: KeyTypes.cpf },
     { text: "Cnpj", keyType: KeyTypes.cnpj },
@@ -47,7 +49,9 @@ const Register: React.FC = () => {
 
   return (
     <ScrollView>
+
       <Container behavior="padding" navbarHeight={headerHeight}>
+
         <InnerContainer>
           <Text> Tipo de Chave </Text>
           <TipoChaveContainer>
@@ -77,12 +81,14 @@ const Register: React.FC = () => {
             <Input render={getMaskedInput} />
           )}
         </InnerContainer>
+
         <InnerContainer
           style={{ flexDirection: "row", justifyContent: "space-evenly" }}
         >
           <ActionButton borderColor="red">Voltar</ActionButton>
-          <ActionButton borderColor="green">Salvar</ActionButton>
+          <ActionButton onPress={save} borderColor="green">Salvar</ActionButton>
         </InnerContainer>
+
       </Container>
     </ScrollView>
   );
